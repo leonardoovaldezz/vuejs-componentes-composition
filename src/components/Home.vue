@@ -1,42 +1,42 @@
 <template>
   <div>{{ fullName }}</div>
   <div>{{ username }}</div>
-  <button ref="btn">Click!!</button>
+  <button ref="btn">Click!</button>
 </template>
 
-<script>
-import { ref, toRefs, computed, watch, inject } from "vue";
+<script setup>
+import {
+  defineProps,
+  defineExpose,
+  ref,
+  toRefs,
+  computed,
+  watch,
+  inject,
+} from "vue";
 
-export default {
-  props: {
-    firstName: String,
-    lastName: String,
-  },
-  setup(props, { expose }) {
-    const { firstName, lastName } = toRefs(props);
+const props = defineProps({
+  firstName: String,
+  lastName: String,
+});
 
-    const fullName = computed(() => {
-      return `${firstName.value} ${lastName.value}`;
-    });
+const { firstName, lastName } = toRefs(props);
 
-    const username = inject("username");
+const fullName = computed(() => {
+  return `${firstName.value} ${lastName.value}`;
+});
 
-    expose({
-      fullName,
-    });
+const username = inject("username");
 
-    const btn = ref(null);
-    console.log(btn.value);
+defineExpose({
+  fullName,
+});
 
-    watch(btn, (valor) => {
-      console.log(valor);
-    });
+const btn = ref(null);
 
-    return {
-      fullName,
-      username,
-      btn,
-    };
-  },
-};
+console.log(btn.value);
+
+watch(btn, (valor) => {
+  console.log(valor);
+});
 </script>

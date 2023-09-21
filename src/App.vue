@@ -1,9 +1,9 @@
 <template>
-  <Home first-name="Leonardo" last-name="Valdez" otro="nada"></Home>
+  <Home first-name="Leonardo" last-name="Valdez"></Home>
 </template>
 
 <script>
-import Home from "./components/Home.vue";
+import Home from "@/components/Home.vue";
 import { provide } from "vue";
 
 export default {
@@ -12,7 +12,7 @@ export default {
     Home,
   },
   setup() {
-    provide("username", "Leonardowifi");
+    provide("username", "LeonardoWinner");
   },
 };
 </script>
