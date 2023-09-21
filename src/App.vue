@@ -1,14 +1,18 @@
 <template>
-  <Home first-name="Leonardo" last-name="Valdez"></Home>
+  <Home first-name="Leonardo" last-name="Valdez" otro="nada"></Home>
 </template>
 
 <script>
 import Home from "./components/Home.vue";
+import { provide } from "vue";
 
 export default {
   name: "App",
   components: {
     Home,
+  },
+  setup() {
+    provide("username", "Leonardowifi");
   },
 };
 </script>

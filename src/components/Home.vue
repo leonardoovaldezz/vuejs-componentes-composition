@@ -1,9 +1,10 @@
 <template>
   <div>FullName: {{ fullName }}</div>
+  <div>User: {{ username }}</div>
 </template>
 
 <script>
-import { toRefs, computed } from "vue";
+import { toRefs, computed, inject } from "vue";
 
 export default {
   props: {
@@ -11,15 +12,22 @@ export default {
     lastName: String,
   },
 
-  setup(props) {
+  setup(props, { expose }) {
     const { firstName, lastName } = toRefs(props);
 
     const fullName = computed(() => {
       return `${firstName.value} ${lastName.value}`;
     });
 
+    const username = inject("username");
+
+    expose({
+      fullName,
+    });
+
     return {
       fullName,
+      username,
     };
   },
 };
