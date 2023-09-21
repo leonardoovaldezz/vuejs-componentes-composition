@@ -1,13 +1,14 @@
 <template>
-  <Modal />
+  <Home></Home>
 </template>
 
 <script>
-import Modal from "./components/Modal.vue";
+import Home from "./components/Home.vue";
+
 export default {
   name: "App",
   components: {
-    Modal,
+    Home,
   },
 };
 </script>
